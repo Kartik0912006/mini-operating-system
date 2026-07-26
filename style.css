@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* ---- Navbar ---- */
+.navbar {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 16px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar .brand {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    background: rgba(255,255,255,0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.navbar .nav-links a:hover {
+    background: rgba(255,255,255,0.35);
+}
+
+.navbar .nav-links a.logout {
+    background: #ff6b6b;
+}
+
+/* ---- Page container for modules ---- */
+.page-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.page-container h1 {
+    color: white;
+    margin-bottom: 24px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin-bottom: 20px;
+}
+
+.card h2, .card h3 { color: #764ba2; margin-bottom: 8px; }
+
+form { display: flex; flex-direction: column; gap: 12px; }
+
+input, select, textarea {
+    padding: 12px 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+input:focus, select:focus, textarea:focus { border-color: #764ba2; }
+
+button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+button:hover { opacity: 0.9; }
+
+.item-card {
+    background: #f8f7fc;
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item-card a.delete-link {
+    color: #ff6b6b;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.result-box {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ---- Auth pages (Login/Signup) ---- */
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.auth-container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+}
+
+.auth-container h1 { color: #333; margin-bottom: 8px; font-size: 26px; }
+.auth-container p.subtitle { color: #888; font-size: 14px; margin-bottom: 24px; }
+.auth-container .switch-link { margin-top: 20px; font-size: 13px; color: #888; }
+.auth-container .switch-link a { color: #764ba2; font-weight: 600; text-decoration: none; }
+
+.error-msg, .success-msg {
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-top: 12px;
+}
+.error-msg { background: #ffe5e5; color: #c0392b; }
+.success-msg { background: #e5ffe9; color: #27ae60; }

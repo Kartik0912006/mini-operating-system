@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini OS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">🖥️ Mini OS</div>
+        <div class="nav-links">
+            <a href="/calculator">Calculator</a>
+            <a href="/password-gen">Password Gen</a>
+            {% if current_user.is_authenticated %}
+                <a href="/notes">Notes</a>
+                <a href="/contacts">Contacts</a>
+                <a href="/expenses">Expenses</a>
+                <a href="/settings">Settings</a>
+                <a href="/logout" class="logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/signup">Sign Up</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="page-container">
+        <h1>Welcome to Mini OS{% if current_user.is_authenticated %}, {{ current_user.username }}{% endif %}</h1>
+        <div class="card">
+            {% if current_user.is_authenticated %}
+                <p>You're logged in. Use the navbar above to jump to any module.</p>
+            {% else %}
+                <p>Log in or sign up to access Notes, Contacts, and Expense Tracker. Calculator and Password Generator are open to everyone.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings - Mini OS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">🖥️ Mini OS</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+    </div>
+    <div class="page-container">
+        <h1>Settings</h1>
+        <div class="card">
+            <h2>Change Password</h2>
+            <form method="POST">
+                <input type="password" name="current_password" placeholder="Current Password" required>
+                <input type="password" name="new_password" placeholder="New Password" required>
+                <button type="submit">Update Password</button>
+            </form>
+            {% if message %}<div class="success-msg">{{ message }}</div>{% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Mini OS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div class="auth-container">
+            <h1>Welcome Back</h1>
+            <p class="subtitle">Log in to continue to Mini OS</p>
+            <form method="POST">
+                <input name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            {% if error %}<div class="error-msg">{{ error }}</div>{% endif %}
+            <p class="switch-link">Don't have an account? <a href="/signup">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>

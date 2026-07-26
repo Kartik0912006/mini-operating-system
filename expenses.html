@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expenses - Mini OS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">🖥️ Mini OS</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/settings">Settings</a>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+    </div>
+    <div class="page-container">
+        <h1>My Expenses</h1>
+        <div class="card">
+            <h2>Total Spent: ₹{{ total }}</h2>
+            <form method="POST">
+                <input type="number" step="0.01" name="amount" placeholder="Amount">
+                <input name="category" placeholder="Category">
+                <input type="date" name="date">
+                <button type="submit">Add Expense</button>
+            </form>
+        </div>
+        {% for expense in expenses %}
+            <div class="item-card">
+                <div>
+                    <h3>{{ expense.category }} - ₹{{ expense.amount }}</h3>
+                    <p>{{ expense.date }}</p>
+                </div>
+                <a href="/expenses/delete/{{ expense.id }}" class="delete-link">Delete</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

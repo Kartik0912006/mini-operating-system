@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Contacts - Mini OS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">🖥️ Mini OS</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/settings">Settings</a>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+    </div>
+    <div class="page-container">
+        <h1>My Contacts</h1>
+        <div class="card">
+            <form method="POST">
+                <input name="name" placeholder="Name">
+                <input name="phone" placeholder="Phone">
+                <input name="email" placeholder="Email">
+                <button type="submit">Add Contact</button>
+            </form>
+        </div>
+        {% for contact in contacts %}
+            <div class="item-card">
+                <div>
+                    <h3>{{ contact.name }}</h3>
+                    <p>{{ contact.phone }} · {{ contact.email }}</p>
+                </div>
+                <a href="/contacts/delete/{{ contact.id }}" class="delete-link">Delete</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

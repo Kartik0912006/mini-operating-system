@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes - Mini OS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">🖥️ Mini OS</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/settings">Settings</a>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+    </div>
+    <div class="page-container">
+        <h1>My Notes</h1>
+        <div class="card">
+            <form method="POST">
+                <input name="title" placeholder="Title">
+                <textarea name="content" placeholder="Content" rows="3"></textarea>
+                <button type="submit">Add Note</button>
+            </form>
+        </div>
+        {% for note in notes %}
+            <div class="item-card">
+                <div>
+                    <h3>{{ note.title }}</h3>
+                    <p>{{ note.content }}</p>
+                </div>
+                <a href="/notes/delete/{{ note.id }}" class="delete-link">Delete</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
